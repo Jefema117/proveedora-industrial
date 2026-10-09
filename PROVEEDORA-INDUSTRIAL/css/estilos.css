@@ -1,0 +1,994 @@
+
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul: #0b2942;
+    --azul-claro: #163d5a;
+    --naranja: #f58220;
+    --naranja-oscuro: #d96d0b;
+    --blanco: #ffffff;
+    --fondo: #f4f7f9;
+    --texto: #172b3a;
+    --texto-secundario: #586b79;
+    --borde: #e0e7ed;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--blanco);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+a {
+    transition: color 0.2s ease,
+                background-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* ========================================
+   ENCABEZADO Y LOGO
+======================================== */
+
+
+.header {
+    width: 100%;
+    min-height: 100px;
+    background-color: var(--azul);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 5px 5%;
+    position: relative;
+    z-index: 10;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+    width: 100px;
+    height: 90px;
+    object-fit: contain;
+    background-color: transparent;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ========================================
+   MENÚ DE NAVEGACIÓN
+======================================== */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.menu a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.menu a:hover {
+    color: var(--naranja);
+}
+
+.menu .boton-cotizacion {
+    background-color: var(--naranja);
+    color: var(--blanco);
+    padding: 12px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.menu .boton-cotizacion:hover {
+    background-color: var(--naranja-oscuro);
+    color: var(--blanco);
+}
+
+
+/* ========================================
+   PORTADA PRINCIPAL
+======================================== */
+
+.hero {
+    min-height: 560px;
+    background-color: var(--fondo);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 75px 8%;
+}
+
+.hero-contenido {
+    flex: 1;
+    max-width: 650px;
+}
+
+.hero-etiqueta,
+.seccion-etiqueta {
+    color: var(--naranja);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    color: var(--azul);
+    font-size: clamp(38px, 4.5vw, 58px);
+    line-height: 1.12;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--naranja);
+}
+
+.hero-texto {
+    color: var(--texto-secundario);
+    font-size: 19px;
+    max-width: 580px;
+    margin-bottom: 30px;
+}
+
+.hero-botones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hero-boton {
+    display: inline-block;
+    background-color: var(--naranja);
+    color: var(--blanco);
+    padding: 14px 24px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.hero-boton:hover {
+    background-color: var(--naranja-oscuro);
+    transform: translateY(-2px);
+}
+
+.hero-boton-secundario {
+    display: inline-block;
+    border: 2px solid var(--azul);
+    color: var(--azul);
+    padding: 12px 22px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.hero-boton-secundario:hover {
+    background-color: var(--azul);
+    color: var(--blanco);
+}
+
+
+/* ========================================
+   PANEL VISUAL DE LA PORTADA
+======================================== */
+
+.hero-imagen {
+    flex: 1;
+    min-width: 0;
+    min-height: 390px;
+    background:
+        linear-gradient(
+            rgba(11, 41, 66, 0.88),
+            rgba(11, 41, 66, 0.88)
+        ),
+        linear-gradient(135deg, #163d5a, #071a2b);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.circulo-decorativo {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    border: 4px solid var(--naranja);
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.circulo-decorativo::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 2px solid var(--blanco);
+    border-radius: 50%;
+    top: 31px;
+    left: 31px;
+    opacity: 0.35;
+}
+
+.imagen-contenido {
+    position: relative;
+    text-align: center;
+    color: var(--blanco);
+    z-index: 2;
+    padding: 25px;
+}
+
+.imagen-contenido span {
+    display: block;
+    color: var(--naranja);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.imagen-contenido strong {
+    display: block;
+    font-size: clamp(30px, 3.5vw, 45px);
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+.imagen-contenido h2 {
+    font-size: clamp(16px, 2vw, 23px);
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+
+.imagen-contenido p {
+    color: #d9e2ec;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+
+/* ========================================
+   BENEFICIOS
+======================================== */
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    padding: 35px 8%;
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+}
+
+.beneficio {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.beneficio-icono {
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff0e3;
+    color: var(--naranja-oscuro);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.beneficio h3 {
+    color: var(--azul);
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.beneficio p {
+    color: var(--texto-secundario);
+    font-size: 13px;
+}
+
+
+/* ========================================
+   SECCIONES GENERALES
+======================================== */
+
+.seccion {
+    padding: 85px 8%;
+}
+
+.encabezado-seccion {
+    max-width: 720px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.encabezado-seccion h2 {
+    color: var(--azul);
+    font-size: clamp(29px, 3.5vw, 40px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.encabezado-seccion > p:last-child {
+    color: var(--texto-secundario);
+    font-size: 16px;
+}
+
+
+/* ========================================
+   TARJETAS DE PRODUCTOS
+======================================== */
+
+.productos {
+    background-color: var(--blanco);
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* Centrar la séptima categoría debajo de la quinta */
+.producto-card:last-child {
+    grid-column: 2;
+}
+
+.producto-card {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 7px;
+    padding: 30px 25px;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--naranja);
+    box-shadow: 0 12px 28px rgba(11, 41, 66, 0.08);
+}
+
+.producto-icono {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--azul);
+    color: var(--naranja);
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.producto-card h3 {
+    color: var(--azul);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.producto-card p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.producto-card a {
+    color: var(--naranja-oscuro);
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.producto-card a:hover {
+    color: var(--azul);
+}
+
+.nota-catalogo {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--texto-secundario);
+}
+
+
+/* ========================================
+   SERVICIOS
+======================================== */
+
+.servicios {
+    background-color: var(--fondo);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.servicio-card {
+    background-color: var(--blanco);
+    padding: 32px 28px;
+    border-radius: 6px;
+    border-bottom: 4px solid var(--naranja);
+    box-shadow: 0 5px 20px rgba(11, 41, 66, 0.04);
+}
+
+.servicio-numero {
+    display: block;
+    color: var(--naranja);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.servicio-card h3 {
+    color: var(--azul);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.servicio-card p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+
+/* ========================================
+   NOSOTROS
+======================================== */
+
+.nosotros {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+    gap: 70px;
+    background-color: var(--blanco);
+}
+
+.nosotros-contenido h2 {
+    color: var(--azul);
+    font-size: clamp(30px, 3.5vw, 42px);
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.nosotros-contenido > p:not(.seccion-etiqueta) {
+    color: var(--texto-secundario);
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.nosotros-contenido .hero-boton {
+    margin-top: 12px;
+}
+
+.nosotros-destacado {
+    min-height: 300px;
+    padding: 35px;
+    background-color: var(--azul);
+    border-radius: 8px;
+    color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.nosotros-destacado > span:first-child {
+    color: #d9e2ec;
+    font-size: 15px;
+    letter-spacing: 4px;
+}
+
+.nosotros-destacado strong {
+    font-size: clamp(29px, 3.5vw, 42px);
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin: 8px 0;
+}
+
+.nosotros-destacado > span:nth-of-type(2) {
+    color: var(--naranja);
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.linea-naranja {
+    width: 70px;
+    height: 4px;
+    background-color: var(--naranja);
+    margin: 25px 0;
+}
+
+.nosotros-destacado p {
+    color: #d9e2ec;
+    font-size: 13px;
+}
+
+
+/* ========================================
+   CONTACTO Y COTIZACIONES
+======================================== */
+
+.contacto {
+    background-color: var(--fondo);
+}
+
+.contacto-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.contacto-texto h3,
+.contacto-panel h3 {
+    color: var(--azul);
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.contacto-texto > p,
+.contacto-panel > p {
+    color: var(--texto-secundario);
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.contacto-dato {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.contacto-dato span {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--azul);
+    color: var(--naranja);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.contacto-dato p {
+    color: var(--texto);
+    font-size: 14px;
+}
+
+.contacto-panel {
+    background-color: var(--blanco);
+    border-radius: 8px;
+    padding: 35px;
+    border-top: 5px solid var(--naranja);
+    box-shadow: 0 8px 25px rgba(11, 41, 66, 0.06);
+}
+
+.contacto-pendiente {
+    padding: 15px;
+    background-color: #fff5eb;
+    border-radius: 4px;
+    color: var(--azul) !important;
+    font-weight: bold;
+    font-size: 14px !important;
+}
+
+
+/* ========================================
+   PIE DE PÁGINA
+======================================== */
+
+.footer {
+    background-color: var(--azul);
+    color: var(--blanco);
+    text-align: center;
+    padding: 40px 8% 0;
+}
+
+.footer-logo {
+    display: inline-block;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+    color: var(--naranja);
+}
+
+.footer > p {
+    color: #d9e2ec;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.volver-arriba {
+    display: inline-block;
+    color: var(--naranja);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0 25px;
+}
+
+.volver-arriba:hover {
+    color: var(--blanco);
+}
+
+.footer-final {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px 0;
+}
+
+.footer-final p {
+    color: #d9e2ec;
+    font-size: 12px;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+    .header {
+        padding: 10px 3%;
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 85px;
+        height: 80px;
+    }
+
+    .menu {
+        gap: 13px;
+    }
+
+    .menu a {
+        font-size: 13px;
+    }
+
+    .hero {
+        gap: 35px;
+        padding: 60px 5%;
+    }
+
+    .beneficios {
+        padding: 30px 5%;
+        gap: 20px;
+    }
+
+    .seccion {
+        padding: 70px 5%;
+    }
+
+        .producto-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 450px;
+        width: 100%;
+        justify-self: center;
+    }
+
+    .nosotros {
+        gap: 35px;
+    }
+}
+
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 700px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 18px 20px;
+    }
+
+    .logo img {
+        width: 95px;
+        height: 85px;
+    }
+
+    .menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+}
+
+    .menu a {
+        font-size: 13px;
+    }
+
+    .menu .boton-cotizacion {
+        padding: 9px 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 35px;
+        padding: 50px 22px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero-texto {
+        font-size: 17px;
+    }
+
+    .hero-imagen {
+        min-height: 300px;
+        width: 100%;
+    }
+
+    .circulo-decorativo {
+        width: 240px;
+        height: 240px;
+    }
+
+    .circulo-decorativo::before {
+        width: 180px;
+        height: 180px;
+        top: 26px;
+        left: 26px;
+    }
+
+    .imagen-contenido strong {
+        font-size: 32px;
+    }
+
+    .beneficios {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 30px 22px;
+    }
+
+    .seccion {
+        padding: 60px 22px;
+    }
+
+    .encabezado-seccion {
+        margin-bottom: 32px;
+    }
+
+    .productos-grid,
+    .servicios-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .producto-card,
+    .servicio-card {
+        padding: 25px 22px;
+    }
+
+    .nosotros {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .nosotros-destacado {
+        min-height: 250px;
+    }
+
+    .contacto-contenido {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .contacto-panel {
+        padding: 25px 22px;
+    }
+
+    .footer {
+        padding: 35px 20px 0;
+    }
+}
+
+
+/* ========================================
+   CELULARES PEQUEÑOS
+======================================== */
+
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 33px;
+    }
+
+    .hero-botones {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-boton,
+    .hero-boton-secundario {
+        text-align: center;
+    }
+
+    .menu {
+        gap: 10px 13px;
+    }
+
+    .imagen-contenido {
+        padding: 15px;
+    }
+
+    .imagen-contenido span {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+}
+.servicio-destacado {
+    color: #f58220;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+/* ========================================
+   AJUSTES PARA IPAD MINI Y TABLETAS
+======================================== */
+
+@media (min-width: 701px) and (max-width: 850px) {
+
+    /* Encabezado y menú */
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 22px;
+        padding: 15px 4%;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 16px;
+    }
+
+    .menu a {
+        font-size: 13px;
+    }
+
+    /* Portada */
+    .hero {
+        gap: 25px;
+        padding: 50px 4%;
+    }
+
+    .hero h1 {
+        font-size: clamp(30px, 4.5vw, 40px);
+        line-height: 1.15;
+    }
+
+    .hero-imagen {
+        min-width: 0;
+    }
+
+    /* Catálogo: dos columnas */
+    .productos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .producto-card {
+        min-width: 0;
+        padding: 23px 18px;
+    }
+
+    .producto-card:last-child {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 420px;
+        justify-self: center;
+    }
+
+    /* Servicios */
+    .servicios-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .servicio-card {
+        min-width: 0;
+        padding: 23px 18px;
+    }
+
+    .servicio-card:last-child {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 420px;
+        justify-self: center;
+    }
+
+    /* Nosotros y contacto */
+    .nosotros {
+        gap: 25px;
+    }
+
+    .contacto-contenido {
+        gap: 25px;
+    }
+
+    .contacto-panel {
+        min-width: 0;
+        padding: 25px 20px;
+    }
+}
+
+/* Trayectoria de la empresa */
+.nosotros-trayectoria {
+    color: #f58220;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 20px 0;
+}
